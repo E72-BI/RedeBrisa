@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Manutenção | Rede Brisa Hotéis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://www.brisahoteis.com.br/" target="_blank">
+                <img src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png" alt="Logo Brisa Hotéis">
+            </a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Painel de Manutenção | Rede Brisa Hotéis</h1>
+        <p>Acompanhe o fluxo das ordens de serviço (OS) e otimize a execução das manutenções</p>
+    </section>
+    
+    <div class="panel-content">
+        <div class="data-section">
+            <h2><i class="fas fa-tools"></i> Gestão de Ordens de Serviço</h2>
+            <p>Este painel permite visualizar e gerenciar todas as ordens de serviço da rede de hotéis, com informações detalhadas sobre:</p>
+            <ul>
+                <li>Status das solicitações (aberta, em andamento, concluída)</li>
+                <li>Tempo médio de atendimento por categoria</li>
+                <li>Distribuição de solicitações por unidade hoteleira</li>
+                <li>Análise de prioridades e urgências</li>
+            </ul>
+            <div class="card-actions" style="margin-top: 1rem;">
+                <a href="https://bit.ly/recebrisachecklist" target="_blank" class="action-link">
+                    <i class="fas fa-external-link-alt"></i> Acessar Dashboard no BI
+                </a>
+                <button class="copy-btn" onclick="copyToClipboard(window.location.href)">
+                    <i class="fas fa-copy"></i> Copiar Link
+                </button>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-chart-line"></i> Indicadores de Performance</h2>
+            <p>Acompanhe os principais KPIs de manutenção:</p>
+            <ul>
+                <li>Tempo médio entre falhas (MTBF)</li>
+                <li>Tempo médio para reparo (MTTR)</li>
+                <li>Taxa de resolução no primeiro atendimento</li>
+                <li>Percentual de manutenções preventivas vs. corretivas</li>
+                <li>Custo médio por intervenção</li>
+            </ul>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-tasks"></i> Instruções de Uso</h2>
+            <ol>
+                <li>Acesse o dashboard clicando no botão "Acessar Dashboard no BI"</li>
+                <li>Utilize os filtros para selecionar períodos, unidades ou tipos específicos de manutenção</li>
+                <li>Exporte relatórios em diversos formatos para apresentações e reuniões</li>
+                <li>Configure alertas para situações críticas que exigem atenção imediata</li>
+            </ol>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Rede Brisa Hotéis - Todos os direitos reservados
+    </footer>
+    <script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Governanta | Rede Brisa Hotéis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://www.brisahoteis.com.br/" target="_blank">
+                <img src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png" alt="Logo Brisa Hotéis">
+            </a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Painel Governanta | Rede Brisa Hotéis</h1>
+        <p>Controle e acompanhe inspeções operacionais para garantir a padronização e qualidade dos serviços de governança</p>
+    </section>
+    
+    <div class="panel-content">
+        <div class="data-section">
+            <h2><i class="fas fa-hotel"></i> Gestão de Governança</h2>
+            <p>Este painel permite acompanhar todas as atividades relacionadas à governança hoteleira:</p>
+            <ul>
+                <li>Status de limpeza e arrumação dos quartos</li>
+                <li>Inspeções de qualidade realizadas</li>
+                <li>Distribuição de tarefas entre a equipe</li>
+                <li>Controle de amenities e estoque de materiais</li>
+            </ul>
+            <div class="card-actions" style="margin-top: 1rem;">
+                <a href="https://bit.ly/inspecaogovernantas" target="_blank" class="action-link">
+                    <i class="fas fa-external-link-alt"></i> Acessar Dashboard no BI
+                </a>
+                <button class="copy-btn" onclick="copyToClipboard(window.location.href)">
+                    <i class="fas fa-copy"></i> Copiar Link
+                </button>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-clipboard-list"></i> Inspeções e Padrões</h2>
+            <p>Acompanhe os resultados das inspeções de qualidade:</p>
+            <ul>
+                <li>Checklist detalhado por tipo de acomodação</li>
+                <li>Resultados por unidade, andar e quarto</li>
+                <li>Histórico de não-conformidades</li>
+                <li>Tempo médio de arrumação e limpeza</li>
+                <li>Satisfação dos hóspedes relacionada à limpeza</li>
+            </ul>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-users"></i> Equipe e Produtividade</h2>
+            <p>Monitore a performance da equipe de governança:</p>
+            <ul>
+                <li>Produtividade por colaborador</li>
+                <li>Distribuição de tarefas e carga de trabalho</li>
+                <li>Tempos médios de execução por tipo de serviço</li>
+                <li>Necessidades de treinamento identificadas</li>
+                <li>Reconhecimento de destaques de performance</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Rede Brisa Hotéis - Todos os direitos reservados
+    </footer>
+    <script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+    </script>
+</body>
+</html>

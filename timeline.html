@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Linha do Tempo | Rede Brisa Hotéis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://www.brisahoteis.com.br/" target="_blank">
+                <img src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png" alt="Logo Brisa Hotéis">
+            </a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Painel Linha do Tempo | Rede Brisa Hotéis</h1>
+        <p>Analise o impacto das manutenções preventivas na redução das solicitações da recepção</p>
+    </section>
+    
+    <div class="panel-content">
+        <div class="data-section">
+            <h2><i class="fas fa-stream"></i> Linha do Tempo Operacional</h2>
+            <p>Este painel permite analisar a correlação entre manutenções preventivas e a redução de problemas reportados:</p>
+            <ul>
+                <li>Visualização cronológica de ações preventivas e ocorrências</li>
+                <li>Análise de causa e efeito entre intervenções e resultados</li>
+                <li>Identificação de padrões sazonais e recorrentes</li>
+                <li>Projeções e tendências futuras baseadas em dados históricos</li>
+            </ul>
+            <div class="card-actions" style="margin-top: 1rem;">
+                <a href="https://bit.ly/redebrisatimeline" target="_blank" class="action-link">
+                    <i class="fas fa-external-link-alt"></i> Acessar Dashboard no BI
+                </a>
+                <button class="copy-btn" onclick="copyToClipboard(window.location.href)">
+                    <i class="fas fa-copy"></i> Copiar Link
+                </button>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-chart-bar"></i> Análise de Impacto</h2>
+            <p>Mensure a efetividade das manutenções preventivas:</p>
+            <ul>
+                <li>Redução percentual de reclamações após intervenções</li>
+                <li>Economia gerada pela prevenção vs. correção</li>
+                <li>Tempo médio entre ocorrências similares</li>
+                <li>ROI das ações preventivas por categoria</li>
+                <li>Comparativo entre unidades hoteleiras</li>
+            </ul>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-lightbulb"></i> Insights e Recomendações</h2>
+            <p>Obtenha orientações baseadas em dados:</p>
+            <ul>
+                <li>Áreas críticas que necessitam atenção prioritária</li>
+                <li>Sugestões de periodicidade ideal para manutenções preventivas</li>
+                <li>Alertas preditivos para potenciais problemas futuros</li>
+                <li>Benchmark de melhores práticas entre unidades</li>
+                <li>Calendário sugerido de intervenções programadas</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Rede Brisa Hotéis - Todos os direitos reservados
+    </footer>
+    <script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Manutenção | Rede Brisa Hotéis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Inclua aqui o mesmo CSS da página principal */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://www.brisahoteis.com.br/">
+                <img src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png" alt="Logo Brisa Hotéis">
+            </a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Painel de Manutenção | Rede Brisa Hotéis</h1>
+        <p>Gerencie ordens de serviço (OS) e otimize a execução das manutenções.</p>
+    </section>
+
+    <div class="dashboards">
+        <div class="dashboard-card">
+            <h3><i class="fas fa-tools"></i> Manutenção</h3>
+            <p>Acompanhe o fluxo das ordens de serviço (OS). Identifique rapidamente o status de cada solicitação e otimize a execução das manutenções.</p>
+            <div class="card-actions">
+                <a href="https://bit.ly/recebrisachecklist" target="_blank">Acessar →</a>
+                <button class="copy-btn" onclick="copyToClipboard('https://bit.ly/recebrisachecklist')">Copiar Link</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Rede Brisa Hotéis - Todos os direitos reservados
+    </footer>
+
+    <script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+    </script>
+</body>
+</html>

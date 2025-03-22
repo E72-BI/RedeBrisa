@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Qualidade | Rede Brisa Hotéis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://www.brisahoteis.com.br/" target="_blank">
+                <img src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png" alt="Logo Brisa Hotéis">
+            </a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Painel de Qualidade | Rede Brisa Hotéis</h1>
+        <p>Monitore indicadores de satisfação dos hóspedes e identifique oportunidades de melhoria</p>
+    </section>
+    
+    <div class="panel-content">
+        <div class="data-section">
+            <h2><i class="fas fa-star"></i> Satisfação dos Hóspedes</h2>
+            <p>Este painel permite analisar os indicadores de satisfação dos hóspedes:</p>
+            <ul>
+                <li>Avaliações online (Booking, TripAdvisor, Google)</li>
+                <li>Pesquisas de satisfação internas</li>
+                <li>Feedback por departamento (recepção, governança, A&B)</li>
+                <li>Evolução histórica das avaliações</li>
+            </ul>
+            <div class="card-actions" style="margin-top: 1rem;">
+                <a href="https://bit.ly/redebrisa_qualidade" target="_blank" class="action-link">
+                    <i class="fas fa-external-link-alt"></i> Acessar Dashboard no BI
+                </a>
+                <button class="copy-btn" onclick="copyToClipboard(window.location.href)">
+                    <i class="fas fa-copy"></i> Copiar Link
+                </button>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-comment-alt"></i> Análise de Comentários</h2>
+            <p>Entenda o que os hóspedes estão dizendo:</p>
+            <ul>
+                <li>Análise de sentimento dos comentários</li>
+                <li>Principais tópicos mencionados (positivos e negativos)</li>
+                <li>Comparativo com a concorrência</li>
+                <li>Identificação de tendências emergentes</li>
+                <li>Rastreamento de problemas recorrentes</li>
+            </ul>
+        </div>
+        
+        <div class="data-section">
+            <h2><i class="fas fa-chart-pie"></i> Métricas de Qualidade</h2>
+            <p>Monitore indicadores-chave de qualidade:</p>
+            <ul>
+                <li>Net Promoter Score (NPS)</li>
+                <li>Customer Satisfaction Score (CSAT)</li>
+                <li>Índice de reclamações por 100 hóspedes</li>
+                <li>Taxa de resolução de problemas no primeiro contato</li>
+                <li>Tempo médio de resposta a reclamações</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 Rede Brisa Hotéis - Todos os direitos reservados
+    </footer>
+    <script>
+        function copyToClipboard(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+    </script>
+</body>
+</html>
