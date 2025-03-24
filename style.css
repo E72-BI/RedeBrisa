@@ -19,15 +19,16 @@ body {
 
 header {
     background: var(--primary);
-    padding: 0.4rem 4%;
+    padding: 0 5%; /* Removido o padding vertical */
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    
+    align-items: center; /* Isso já está centralizando verticalmente */
+    height: 60px;
 }
 
 .logo img {
-    height: 50px;
+    height: 40px; /* Reduzindo ligeiramente para ter mais espaço em cima e embaixo */
+    display: block; /* Garantir que não haja espaço extra abaixo da imagem */
 }
 
 .hero {
