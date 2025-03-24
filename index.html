@@ -39,7 +39,8 @@
                 <div class="card-actions">
                     <a href="https://bit.ly/brisa_checklist" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                     <a href="manutencao.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyToClipboard('manutencao.html')"><i class="fas fa-copy"></i> Copiar URL</button>
+                    <button class="copy-btn" onclick="copyBILink('https://app.powerbi.com/view?r=eyJrIjoiNWRlMWZlZjktNmIxNi00YjJhLTgxYTUtYjc5ZjhmOGJjNjNlIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9')"><i class="fas fa-link"></i> Copiar Link BI</button>
+                    <button class="copy-btn" onclick="copyToClipboard('manutencao.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
                 </div>
             </div>
             
@@ -49,7 +50,8 @@
                 <div class="card-actions">
                     <a href="https://bit.ly/brisa_pmoc" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                     <a href="pmoc.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyToClipboard('pmoc.html')"><i class="fas fa-copy"></i> Copiar URL</button>
+                    <button class="copy-btn" onclick="copyBILink('https://app.powerbi.com/view?r=eyJrIjoiMjg0OTljYjEtOTIxNC00ZTlmLWEzMWItNmIwN2FlNWMyY2NmIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9')"><i class="fas fa-link"></i> Copiar Link BI</button>
+                    <button class="copy-btn" onclick="copyToClipboard('pmoc.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
                 </div>
             </div>
             
@@ -59,7 +61,8 @@
                 <div class="card-actions">
                     <a href="https://bit.ly/brisa_governantas" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                     <a href="governanta.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyToClipboard('governanta.html')"><i class="fas fa-copy"></i> Copiar URL</button>
+                    <button class="copy-btn" onclick="copyBILink('https://app.powerbi.com/view?r=eyJrIjoiMmZmY2E5MzUtYTlhNi00M2Y0LWE4NGMtZmNiMzg5NGQ0NzQ4IiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9')"><i class="fas fa-link"></i> Copiar Link BI</button>
+                    <button class="copy-btn" onclick="copyToClipboard('governanta.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
                 </div>
             </div>
             
@@ -69,7 +72,8 @@
                 <div class="card-actions">
                     <a href="https://bit.ly/brisa_timeline" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                     <a href="timeline.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyToClipboard('timeline.html')"><i class="fas fa-copy"></i> Copiar URL</button>
+                    <button class="copy-btn" onclick="copyBILink('https://app.powerbi.com/view?r=eyJrIjoiNDhkZjEwOTktNGU1My00NTBiLWIxYTAtN2Q2MTA0ZjdmZWUyIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9')"><i class="fas fa-link"></i> Copiar Link BI</button>
+                    <button class="copy-btn" onclick="copyToClipboard('timeline.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
                 </div>
             </div>
             
@@ -79,7 +83,8 @@
                 <div class="card-actions">
                     <a href="https://bit.ly/brisa_qualidade" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                     <a href="qualidade.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyToClipboard('qualidade.html')"><i class="fas fa-copy"></i> Copiar URL</button>
+                    <button class="copy-btn" onclick="copyBILink('https://app.powerbi.com/view?r=eyJrIjoiMDZjOTI3MTYtMjg4Yy00OTYwLWI1ZmQtMGNjZTU2MDE0MGQzIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9')"><i class="fas fa-link"></i> Copiar Link BI</button>
+                    <button class="copy-btn" onclick="copyToClipboard('qualidade.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
                 </div>
             </div>
         </div>
@@ -115,6 +120,17 @@
             navigator.clipboard.writeText(fullUrl)
                 .then(() => {
                     alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+        
+        function copyBILink(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link direto do Power BI copiado para a área de transferência!');
                 })
                 .catch(err => {
                     console.error('Erro ao copiar: ', err);

@@ -35,8 +35,11 @@
                 <a href="https://bit.ly/brisa_qualidade" target="_blank" class="action-link">
                     <i class="fas fa-external-link-alt"></i> Acessar Dashboard no BI
                 </a>
+                <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_qualidade')">
+                    <i class="fas fa-link"></i> Copiar Link BI
+                </button>
                 <button class="copy-btn" onclick="copyToClipboard(window.location.href)">
-                    <i class="fas fa-copy"></i> Copiar Link
+                    <i class="fas fa-copy"></i> Copiar Link da Página
                 </button>
             </div>
         </div>
@@ -74,6 +77,17 @@
             navigator.clipboard.writeText(url)
                 .then(() => {
                     alert('Link copiado para a área de transferência!');
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar: ', err);
+                    alert('Erro ao copiar link. Tente novamente.');
+                });
+        }
+        
+        function copyBILink(url) {
+            navigator.clipboard.writeText(url)
+                .then(() => {
+                    alert('Link direto do Power BI copiado para a área de transferência!');
                 })
                 .catch(err => {
                     console.error('Erro ao copiar: ', err);
