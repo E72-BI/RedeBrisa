@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Governança | Rede Brisa Hotéis</title>
+    <title>Painel PMOC | Rede Brisa Hotéis</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -17,26 +17,27 @@
     </header>
     
     <section class="hero">
-        <h1>Painel de Governança | Rede Brisa Hotéis</h1>
-        <p>Monitore as atividades de governança para garantir conforto e qualidade aos hóspedes</p>
+        <h1>Painel PMOC | Rede Brisa Hotéis</h1>
+        <p>Monitore o Plano de Manutenção, Operação e Controle para garantir conformidade com normas e padrões</p>
     </section>
     
     <div class="panel-content">
         <div class="data-section">
-            <h2><i class="fas fa-bed"></i> Gestão de Governança</h2>
-            <p>Este painel permite acompanhar todos os procedimentos da equipe de governança, conforme os padrões da rede:</p>
+            <h2><i class="fas fa-clipboard-check"></i> Gestão de PMOC</h2>
+            <p>Este painel permite acompanhar todos os procedimentos do Plano de Manutenção, Operação e Controle, conforme exigido pela legislação:</p>
             <ul>
-                <li>Controle de periodicidade da limpeza dos apartamentos</li>
-                <li>Checklist completo de verificações por tipo de apartamento</li>
-                <li>Status de ocupação por unidade hoteleira</li>
-                <li>Registro de supervisões e controle de qualidade</li>
+                <li>Controle de periodicidade das manutenções preventivas</li>
+                <li>Checklist completo de verificações por equipamento</li>
+                <li>Status de conformidade por unidade hoteleira</li>
+                <li>Registro de responsáveis técnicos e documentação</li>
             </ul>
             <div class="card-actions" style="margin-top: 1rem;">
-                <a href="https://bit.ly/brisa_governantas" target="_blank" class="action-link">
+                <a href="https://bit.ly/brisa_pmoc" target="_blank" class="action-link">
                     <i class="fas fa-external-link-alt"></i> Acessar Dashboard no BI
                 </a>
-                <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_governantas')">
-                    <i class="fas fa-link"></i> Copiar URL BI
+                
+                <button class="copy-btn" onclick="copyToClipboard('https://bit.ly/brisa_pmoc')">
+                    <i class="fas fa-copy"></i> Copiar Link BI
                 </button>
                 <button class="copy-btn" onclick="copyToClipboard(window.location.href)">
                     <i class="fas fa-copy"></i> Copiar Link da Página
@@ -45,26 +46,26 @@
         </div>
         
         <div class="data-section">
-            <h2><i class="fas fa-clipboard-list"></i> Monitoramento de Atividades</h2>
-            <p>Acompanhe o status das principais atividades:</p>
+            <h2><i class="fas fa-thermometer-half"></i> Monitoramento de Sistemas</h2>
+            <p>Acompanhe o status dos principais sistemas:</p>
             <ul>
-                <li>Limpeza de apartamentos e áreas comuns</li>
-                <li>Reposição de amenities</li>
-                <li>Qualidade dos serviços prestados</li>
-                <li>Controle de rouparia e lavanderia</li>
-                <li>Alertas de manutenção necessária</li>
+                <li>Ar condicionado e climatização</li>
+                <li>Sistemas de ventilação</li>
+                <li>Qualidade do ar interior (QAI)</li>
+                <li>Controles automáticos e eficiência energética</li>
+                <li>Alertas de manutenção programada</li>
             </ul>
         </div>
         
         <div class="data-section">
-            <h2><i class="fas fa-file-alt"></i> Padrões e Procedimentos</h2>
-            <p>Acesso rápido às principais informações de qualidade:</p>
+            <h2><i class="fas fa-file-alt"></i> Documentação e Normas</h2>
+            <p>Acesso rápido às principais informações de conformidade:</p>
             <ul>
-                <li>Manual de procedimentos operacionais padrão (POP)</li>
-                <li>Guia de hospitalidade e atendimento Brisa Hotéis</li>
-                <li>Checklist de inspeção de qualidade</li>
-                <li>Relatórios de performance por unidade</li>
-                <li>Histórico de avaliações e feedback de hóspedes</li>
+                <li>Portaria nº 3.523/GM de 28/08/1998 do Ministério da Saúde</li>
+                <li>Resolução RE nº 9 da ANVISA de 16/01/2003</li>
+                <li>ABNT NBR 13971 - Sistemas de refrigeração, condicionamento de ar e ventilação</li>
+                <li>Certificações e laudos técnicos por unidade</li>
+                <li>Histórico de inspeções e auditorias</li>
             </ul>
         </div>
     </div>
@@ -77,17 +78,6 @@
             navigator.clipboard.writeText(url)
                 .then(() => {
                     alert('Link copiado para a área de transferência!');
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                    alert('Erro ao copiar link. Tente novamente.');
-                });
-        }
-        
-        function copyBILink(url) {
-            navigator.clipboard.writeText(url)
-                .then(() => {
-                    alert('Link direto do Power BI copiado para a área de transferência!');
                 })
                 .catch(err => {
                     console.error('Erro ao copiar: ', err);
