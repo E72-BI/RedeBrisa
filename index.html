@@ -8,17 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div id="login-overlay">
-        <div class="login-box">
-            <img class="login-logo" src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png" alt="Logo Brisa Hotéis">
-            <h2>Acesso aos Painéis Operacionais</h2>
-            <input type="password" id="password" placeholder="Digite sua senha">
-            <button onclick="checkPassword()">Entrar</button>
-            <p id="error-message" style="color: red; margin-top: 10px; display: none;">Senha incorreta!</p>
-        </div>
-    </div>
-
-    <div class="content-container">
+    <div class="content-container" style="display: block;">
         <header>
             <div class="logo">
                 <a href="https://www.brisahoteis.com.br/" target="_blank">
@@ -37,10 +27,7 @@
                 <h3><i class="fas fa-tools"></i> Manutenção</h3>
                 <p>Acompanhe o fluxo das ordens de serviço (OS). Identifique rapidamente o status de cada solicitação e otimize a execução das manutenções.</p>
                 <div class="card-actions">
-                    <a href="https://bit.ly/brisa_checklist" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
-                    <a href="manutencao.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_checklist')"><i class="fas fa-link"></i> Copiar Link BI</button>
-                    <button class="copy-btn" onclick="copyToClipboard('manutencao.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNWRlMWZlZjktNmIxNi00YjJhLTgxYTUtYjc5ZjhmOGJjNjNlIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                 </div>
             </div>
             
@@ -48,10 +35,7 @@
                 <h3><i class="fas fa-clipboard-check"></i> PMOC</h3>
                 <p>Monitore o Plano de Manutenção, Operação e Controle (PMOC) para garantir conformidade com as normas e padrões de qualidade.</p>
                 <div class="card-actions">
-                    <a href="https://bit.ly/brisa_pmoc" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
-                    <a href="pmoc.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_pmoc')"><i class="fas fa-link"></i> Copiar Link BI</button>
-                    <button class="copy-btn" onclick="copyToClipboard('pmoc.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMjg0OTljYjEtOTIxNC00ZTlmLWEzMWItNmIwN2FlNWMyY2NmIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                 </div>
             </div>
             
@@ -59,10 +43,7 @@
                 <h3><i class="fas fa-hotel"></i> Governanta</h3>
                 <p>Controle e acompanhe inspeções operacionais para garantir a padronização e qualidade dos serviços de governança.</p>
                 <div class="card-actions">
-                    <a href="https://bit.ly/brisa_governantas" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
-                    <a href="governanta.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_governantas')"><i class="fas fa-link"></i> Copiar Link BI</button>
-                    <button class="copy-btn" onclick="copyToClipboard('governanta.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmZmY2E5MzUtYTlhNi00M2Y0LWE4NGMtZmNiMzg5NGQ0NzQ4IiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                 </div>
             </div>
             
@@ -70,10 +51,7 @@
                 <h3><i class="fas fa-stream"></i> Linha do Tempo</h3>
                 <p>Analise o impacto das manutenções preventivas na redução das solicitações da recepção.</p>
                 <div class="card-actions">
-                    <a href="https://bit.ly/brisa_timeline" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
-                    <a href="timeline.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_timeline')"><i class="fas fa-link"></i> Copiar Link BI</button>
-                    <button class="copy-btn" onclick="copyToClipboard('timeline.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNDhkZjEwOTktNGU1My00NTBiLWIxYTAtN2Q2MTA0ZjdmZWUyIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                 </div>
             </div>
             
@@ -81,10 +59,7 @@
                 <h3><i class="fas fa-star"></i> Qualidade</h3>
                 <p>Monitore indicadores de satisfação dos hóspedes e identifique oportunidades de melhoria.</p>
                 <div class="card-actions">
-                    <a href="https://bit.ly/brisa_qualidade" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
-                    <a href="qualidade.html" target="_blank" class="action-link panel-link"><i class="fas fa-table"></i> Acessar Página do Painel</a>
-                    <button class="copy-btn" onclick="copyBILink('https://bit.ly/brisa_qualidade')"><i class="fas fa-link"></i> Copiar Link BI</button>
-                    <button class="copy-btn" onclick="copyToClipboard('qualidade.html')"><i class="fas fa-copy"></i> Copiar Link da Página</button>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMDZjOTI3MTYtMjg4Yy00OTYwLWI1ZmQtMGNjZTU2MDE0MGQzIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
                 </div>
             </div>
         </div>
@@ -95,23 +70,6 @@
     </div>
     
     <script>
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            if (password === 'adm123') {
-                document.getElementById('login-overlay').style.display = 'none';
-                document.querySelector('.content-container').style.display = 'block';
-            } else {
-                document.getElementById('error-message').style.display = 'block';
-            }
-        }
-        
-        // Permitir login com tecla Enter
-        document.getElementById('password').addEventListener('keyup', function(event) {
-            if (event.key === 'Enter') {
-                checkPassword();
-            }
-        });
-        
         function copyToClipboard(url) {
             // Construir URL completa com base na localização atual
             const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
