@@ -4,11 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painéis Operacionais | Rede Brisa Hotéis</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Desktop e Tablet: sem scroll, above the fold */
+        @media (min-width: 768px) {
+            html, body {
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            body {
+                background: #f5f5f5;
+            }
+
+            .content-container {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            header {
+                background: linear-gradient(135deg, #0066cc 0%, #004080 100%);
+                text-align: center;
+                padding: 1.2vh 0;
+                flex-shrink: 0;
+            }
+
+            .logo img {
+                height: 5vh;
+                width: auto;
+                filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            }
+
+            .hero {
+                text-align: center;
+                color: #0066cc;
+                background: white;
+                padding: 2vh 20px;
+                flex-shrink: 0;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.3rem, 2.5vh, 1.8rem);
+                margin-bottom: 0.5vh;
+                font-weight: 600;
+            }
+
+            .hero p {
+                font-size: clamp(0.8rem, 1.5vh, 0.95rem);
+                color: #666;
+            }
+
+            .dashboards-wrapper {
+                flex: 1;
+                background: #f5f5f5;
+                padding: 10vh 8vw;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .dashboards {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 3vh 3vw;
+                width: 100%;
+                max-width: 1300px;
+                height: 100%;
+                max-height: 60vh;
+            }
+
+            .dashboard-card {
+                background: white;
+                border-radius: 8px;
+                padding: 1.5vh 1.2vw;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .dashboard-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 28px rgba(0, 102, 204, 0.25);
+            }
+
+            .dashboard-card h3 {
+                color: #0066cc;
+                font-size: clamp(0.95rem, 1.8vh, 1.15rem);
+                margin-bottom: 0.8vh;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-weight: 600;
+            }
+
+            .dashboard-card h3 i {
+                font-size: clamp(1rem, 1.9vh, 1.2rem);
+            }
+
+            .dashboard-card p {
+                color: #666;
+                line-height: 1.5;
+                font-size: clamp(0.75rem, 1.4vh, 0.85rem);
+                flex-grow: 1;
+                margin-bottom: 1vh;
+            }
+
+            .card-actions {
+                margin-top: auto;
+            }
+
+            .action-link {
+                color: #0066cc;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 0.5vh 1vw;
+                border-radius: 4px;
+                transition: background 0.3s ease, color 0.3s ease;
+                font-size: clamp(0.8rem, 1.5vh, 0.9rem);
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 6px;
+            }
+
+            .action-link:hover {
+                background: #0066cc;
+                color: white;
+            }
+
+            footer {
+                background: linear-gradient(135deg, #0066cc 0%, #004080 100%);
+                text-align: center;
+                color: white;
+                padding: 1.5vh 20px;
+                font-size: clamp(0.75rem, 1.4vh, 0.85rem);
+                flex-shrink: 0;
+            }
+        }
+
+        /* Tablet ajuste */
+        @media (min-width: 768px) and (max-width: 1200px) {
+            .dashboards-wrapper {
+                padding: 8vh 6vw;
+            }
+            
+            .dashboards {
+                gap: 2.5vh 2.5vw;
+                max-width: 1150px;
+            }
+        }
+
+        /* Mobile: permite scroll vertical */
+        @media (max-width: 767px) {
+            html, body {
+                height: auto;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+
+            body {
+                background: #f5f5f5;
+            }
+
+            .content-container {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            header {
+                background: linear-gradient(135deg, #0066cc 0%, #004080 100%);
+                text-align: center;
+                padding: 20px 0;
+            }
+
+            .logo img {
+                height: 50px;
+                width: auto;
+                filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            }
+
+            .hero {
+                text-align: center;
+                color: #0066cc;
+                background: white;
+                padding: 25px 20px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                font-weight: 600;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+                color: #666;
+                line-height: 1.5;
+            }
+
+            .dashboards-wrapper {
+                flex: 1;
+                background: #f5f5f5;
+                padding: 25px 20px 35px;
+            }
+
+            .dashboards {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .dashboard-card {
+                background: white;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            }
+
+            .dashboard-card h3 {
+                color: #0066cc;
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 600;
+            }
+
+            .dashboard-card h3 i {
+                font-size: 1.3rem;
+            }
+
+            .dashboard-card p {
+                color: #666;
+                line-height: 1.6;
+                font-size: 0.95rem;
+                margin-bottom: 15px;
+            }
+
+            .action-link {
+                color: #0066cc;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 8px 12px;
+                border-radius: 4px;
+                transition: background 0.3s ease, color 0.3s ease;
+                font-size: 0.95rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 8px;
+            }
+
+            .action-link:active {
+                background: #0066cc;
+                color: white;
+            }
+
+            footer {
+                background: linear-gradient(135deg, #0066cc 0%, #004080 100%);
+                text-align: center;
+                color: white;
+                padding: 25px 20px;
+                font-size: 0.9rem;
+                margin-top: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="content-container" style="display: block;">
+    <div class="content-container">
         <header>
             <div class="logo">
                 <a href="https://www.brisahoteis.com.br/" target="_blank">
@@ -22,52 +307,86 @@
             <p>Acesse rapidamente os dashboards de gestão para monitoramento e análise operacional.</p>
         </section>
         
-        <div class="dashboards">
-            <div class="dashboard-card">
-                <h3><i class="fas fa-tools"></i> Manutenção</h3>
-                <p>Acompanhe o fluxo das ordens de serviço (OS). Identifique rapidamente o status de cada solicitação e otimize a execução das manutenções.</p>
-                <div class="card-actions">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNWRlMWZlZjktNmIxNi00YjJhLTgxYTUtYjc5ZjhmOGJjNjNlIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
+        <div class="dashboards-wrapper">
+            <div class="dashboards">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-tools"></i> Manutenção</h3>
+                    <p>Acompanhe ordens de serviço, identifique status e otimize a execução das manutenções.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNWRlMWZlZjktNmIxNi00YjJhLTgxYTUtYjc5ZjhmOGJjNjNlIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="dashboard-card">
-                <h3><i class="fas fa-clipboard-check"></i> PMOC</h3>
-                <p>Monitore o Plano de Manutenção, Operação e Controle (PMOC) para garantir conformidade com as normas e padrões de qualidade.</p>
-                <div class="card-actions">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMjg0OTljYjEtOTIxNC00ZTlmLWEzMWItNmIwN2FlNWMyY2NmIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-clipboard-check"></i> PMOC</h3>
+                    <p>Monitore o Plano de Manutenção, Operação e Controle para garantir conformidade com normas de qualidade.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMjg0OTljYjEtOTIxNC00ZTlmLWEzMWItNmIwN2FlNWMyY2NmIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="dashboard-card">
-                <h3><i class="fas fa-hotel"></i> Governanta</h3>
-                <p>Controle e acompanhe inspeções operacionais para garantir a padronização e qualidade dos serviços de governança.</p>
-                <div class="card-actions">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmZmY2E5MzUtYTlhNi00M2Y0LWE4NGMtZmNiMzg5NGQ0NzQ4IiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-hotel"></i> Governanta</h3>
+                    <p>Controle inspeções operacionais para garantir padronização e qualidade dos serviços.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMmZmY2E5MzUtYTlhNi00M2Y0LWE4NGMtZmNiMzg5NGQ0NzQ4IiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="dashboard-card">
-                <h3><i class="fas fa-stream"></i> Linha do Tempo</h3>
-                <p>Analise o impacto das manutenções preventivas na redução das solicitações da recepção.</p>
-                <div class="card-actions">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNDhkZjEwOTktNGU1My00NTBiLWIxYTAtN2Q2MTA0ZjdmZWUyIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-stream"></i> Linha do Tempo</h3>
+                    <p>Analise o impacto das manutenções preventivas na redução de solicitações da recepção.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiNDhkZjEwOTktNGU1My00NTBiLWIxYTAtN2Q2MTA0ZjdmZWUyIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="dashboard-card">
-                <h3><i class="fas fa-star"></i> Qualidade</h3>
-                <p>Monitore indicadores de satisfação dos hóspedes e identifique oportunidades de melhoria.</p>
-                <div class="card-actions">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMDZjOTI3MTYtMjg4Yy00OTYwLWI1ZmQtMGNjZTU2MDE0MGQzIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-star"></i> Qualidade</h3>
+                    <p>Monitore indicadores de satisfação dos hóspedes e identifique oportunidades de melhoria.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiMDZjOTI3MTYtMjg4Yy00OTYwLWI1ZmQtMGNjZTU2MDE0MGQzIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="dashboard-card">
-                <h3><i class="fas fa-paint-roller"></i> Pintura</h3>
-                <p>Monitore a frequência, distribuição e reincidência de serviços de pintura nas unidades habitacionais, facilitando o planejamento de ações corretivas e preventivas.</p>
-                <div class="card-actions">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZDY4ZTM2ODUtYmY3Ny00OGVhLWI1NjYtYjk1YzFkOGNjMjgwIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link bi-link"><i class="fas fa-chart-bar"></i> Acessar BI</a>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-paint-roller"></i> Pintura</h3>
+                    <p>Monitore frequência e distribuição de serviços de pintura, facilitando o planejamento de ações corretivas.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiZDY4ZTM2ODUtYmY3Ny00OGVhLWI1NjYtYjk1YzFkOGNjMjgwIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-boxes"></i> Inventário</h3>
+                    <p>Planejamento de CAPEX, projeções de depreciação e previsibilidade para substituição estratégica de ativos.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiODgxNGQzZDgtZDNhYS00NjE2LWE1OGEtMmU0ZDQ2ZGQzN2VkIiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-fire-extinguisher"></i> PCI</h3>
+                    <p>Sistema de Prevenção e Combate a Incêndios. Acompanhe inspeções, validade e conformidade de segurança.</p>
+                    <div class="card-actions">
+                        <a href="https://app.powerbi.com/view?r=eyJrIjoiZDczZmEyNGUtNjBmMS00MzRlLTk1ZjgtNWExMDg1MzJjYTY0IiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9" target="_blank" class="action-link">
+                            <i class="fas fa-chart-bar"></i> Acessar BI
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,33 +395,5 @@
             &copy; 2025 Rede Brisa Hotéis - Todos os direitos reservados
         </footer>
     </div>
-    
-    <script>
-        function copyToClipboard(url) {
-            // Construir URL completa com base na localização atual
-            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
-            const fullUrl = baseUrl + url;
-            
-            navigator.clipboard.writeText(fullUrl)
-                .then(() => {
-                    alert('Link copiado para a área de transferência!');
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                    alert('Erro ao copiar link. Tente novamente.');
-                });
-        }
-        
-        function copyBILink(url) {
-            navigator.clipboard.writeText(url)
-                .then(() => {
-                    alert('Link direto do Power BI copiado para a área de transferência!');
-                })
-                .catch(err => {
-                    console.error('Erro ao copiar: ', err);
-                    alert('Erro ao copiar link. Tente novamente.');
-                });
-        }
-    </script>
 </body>
 </html>
