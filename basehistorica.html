@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BI Histórico de Não Conformidades | Rede Brisa Hotéis</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e5eaf2 100%);
+        }
+
+        .page {
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* =====================================================
+            HEADER
+        ===================================================== */
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            text-align: center;
+            padding: 13px 0;
+            flex-shrink: 0;
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.14);
+        }
+
+        .logo img {
+            height: 52px;
+            width: auto;
+            display: block;
+            margin: auto;
+        }
+
+        /* =====================================================
+            CONTEÚDO
+        ===================================================== */
+
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 18px 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* =====================================================
+            HERO
+        ===================================================== */
+
+        .hero-section {
+            background: white;
+            border-radius: 16px;
+            padding: 25px 35px 27px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            color: #1e3a8a;
+            font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            margin-bottom: 12px;
+        }
+
+        .hero-description {
+            max-width: 920px;
+            margin: 0 auto 18px;
+            color: #4b5563;
+            font-size: 0.91rem;
+            line-height: 1.6;
+        }
+
+        .hero-description strong {
+            color: #1e3a8a;
+        }
+
+        /* =====================================================
+            BOTÃO
+        ===================================================== */
+
+        .btn-bi {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            background: linear-gradient(
+                135deg,
+                #1e40af 0%,
+                #3b82f6 100%
+            );
+            color: white;
+            padding: 10px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.28);
+            transition: all 0.25s ease;
+        }
+
+        .btn-bi:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.38);
+        }
+
+        /* =====================================================
+            CARDS
+        ===================================================== */
+
+        .info-section {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 13px;
+            padding: 17px 19px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 16px rgba(0, 0, 0, 0.055);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #1e40af;
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: #1e3a8a;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .info-card h3 i {
+            width: 31px;
+            height: 31px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 0.95rem;
+        }
+
+        .info-card p {
+            color: #4b5563;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+            DESTAQUE
+        ===================================================== */
+
+        .highlight {
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+            TEMPO ESPERADO
+        ===================================================== */
+
+        .sla-description {
+            margin-bottom: 11px;
+        }
+
+        .sla-columns {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 8px;
+        }
+
+        .sla-group {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 7px;
+        }
+
+        .sla-group-title {
+            color: #64748b;
+            font-size: 0.62rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 5px 6px;
+        }
+
+        .sla-row {
+            display: grid;
+            grid-template-columns: 78px 1fr;
+            align-items: center;
+            min-height: 29px;
+            padding: 5px 7px;
+            background: white;
+            border: 1px solid #edf0f4;
+            border-radius: 6px;
+            margin-bottom: 4px;
+        }
+
+        .sla-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .sla-percent {
+            color: #1e40af;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .sla-label {
+            color: #374151;
+            font-size: 0.68rem;
+            font-weight: 700;
+        }
+
+        /* DESVIOS */
+
+        .deviation-group {
+            background: #fffaf0;
+            border-color: #f3dfae;
+        }
+
+        .deviation-group .sla-group-title {
+            color: #a16207;
+        }
+
+        .sla-row.deviation {
+            background: #fffdf7;
+            border-color: #f5dfaa;
+        }
+
+        .sla-row.deviation .sla-percent {
+            color: #b45309;
+        }
+
+        .sla-row.deviation .sla-label {
+            color: #92400e;
+        }
+
+        /* REGRA */
+
+        .sla-rule {
+            margin-top: 7px;
+            background: #eff6ff;
+            border-radius: 6px;
+            padding: 7px 9px;
+            color: #374151;
+            font-size: 0.68rem;
+            line-height: 1.4;
+        }
+
+        /* =====================================================
+            IMPORTANTE
+        ===================================================== */
+
+        .important-card {
+            background: linear-gradient(
+                135deg,
+                #fffdf7 0%,
+                #fffaf0 100%
+            );
+            border-color: #f3dfae;
+        }
+
+        .important-card::before {
+            background: linear-gradient(
+                180deg,
+                #d97706,
+                #f59e0b
+            );
+        }
+
+        .important-card h3 {
+            color: #92400e;
+        }
+
+        .important-card h3 i {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .important-box {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .important-main {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #f3dfae;
+            border-radius: 8px;
+            padding: 10px 11px;
+        }
+
+        .important-main p {
+            font-size: 0.78rem;
+        }
+
+        .important-main .highlight {
+            color: #92400e;
+        }
+
+        .status-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            background: #fff7df;
+            border-radius: 8px;
+            padding: 9px 10px;
+            border: 1px solid #f5dfaa;
+        }
+
+        .status-box i {
+            color: #d97706;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+
+        .status-box p {
+            font-size: 0.74rem;
+        }
+
+        .status-box .highlight {
+            color: #92400e;
+        }
+
+        .difference-box {
+            font-size: 0.72rem;
+            color: #57534e;
+            line-height: 1.45;
+            padding: 0 2px;
+        }
+
+        .difference-box .highlight {
+            color: #92400e;
+        }
+
+        /* =====================================================
+            FOOTER
+        ===================================================== */
+
+        footer {
+            background: linear-gradient(
+                135deg,
+                #1e3a8a 0%,
+                #1e40af 100%
+            );
+            color: white;
+            text-align: center;
+            padding: 6px 15px;
+            font-size: 0.68rem;
+            flex-shrink: 0;
+        }
+
+        /* =====================================================
+            DESKTOP MENOR
+        ===================================================== */
+
+        @media (max-height: 750px) and (min-width: 769px) {
+
+            header {
+                padding: 8px 0;
+            }
+
+            .logo img {
+                height: 42px;
+            }
+
+            .main-container {
+                padding: 10px 25px;
+            }
+
+            .hero-section {
+                padding: 17px 28px 19px;
+            }
+
+            .hero-title {
+                margin-bottom: 8px;
+            }
+
+            .hero-description {
+                margin-bottom: 12px;
+            }
+
+            .info-section {
+                margin-top: 10px;
+            }
+
+            .info-card {
+                padding: 13px 16px;
+            }
+
+            .info-card h3 {
+                margin-bottom: 6px;
+            }
+
+            .sla-columns {
+                gap: 6px;
+            }
+
+            .sla-row {
+                min-height: 27px;
+                padding: 4px 6px;
+            }
+
+            .sla-percent {
+                font-size: 0.75rem;
+            }
+
+            .sla-label {
+                font-size: 0.65rem;
+            }
+
+            .sla-rule {
+                margin-top: 5px;
+                padding: 5px 8px;
+            }
+
+            .important-box {
+                gap: 6px;
+            }
+        }
+
+        /* =====================================================
+            MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                height: auto;
+                min-height: 100%;
+            }
+
+            body {
+                overflow-y: auto;
+            }
+
+            .page {
+                height: auto;
+                min-height: 100vh;
+                overflow: visible;
+            }
+
+            header {
+                padding: 12px 0;
+            }
+
+            .logo img {
+                height: 48px;
+            }
+
+            .main-container {
+                padding: 16px 14px 30px;
+                justify-content: flex-start;
+            }
+
+            .hero-section {
+                padding: 23px 17px;
+            }
+
+            .hero-title {
+                font-size: 1.55rem;
+                line-height: 1.2;
+                margin-bottom: 12px;
+            }
+
+            .hero-description {
+                font-size: 0.82rem;
+                line-height: 1.55;
+                margin-bottom: 17px;
+            }
+
+            .btn-bi {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .info-section {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            .info-card {
+                padding: 17px;
+            }
+
+            .sla-columns {
+                grid-template-columns: 1fr 1fr;
+                gap: 7px;
+            }
+
+            .sla-row {
+                grid-template-columns: 1fr;
+                gap: 2px;
+                min-height: 42px;
+            }
+
+            .sla-percent {
+                font-size: 0.78rem;
+            }
+
+            .sla-label {
+                font-size: 0.64rem;
+            }
+
+            footer {
+                padding: 8px 10px;
+            }
+        }
+
+        /* =====================================================
+            MOBILE PEQUENO
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .logo img {
+                height: 43px;
+            }
+
+            .hero-title {
+                font-size: 1.4rem;
+            }
+
+            .hero-description {
+                font-size: 0.76rem;
+            }
+
+            .sla-percent {
+                font-size: 0.74rem;
+            }
+
+            .sla-label {
+                font-size: 0.6rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+    <header>
+        <div class="logo">
+            <a href="https://www.brisahoteis.com.br/" target="_blank">
+                <img src="https://lirp.cdn-website.com/e3ef1bfd/dms3rep/multi/opt/branco-sem-fundo-367w.png"
+                     alt="Logo Brisa Hotéis">
+            </a>
+        </div>
+    </header>
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+    <main class="main-container">
+
+        <!-- =================================================
+             TÍTULO + CONTEXTO
+        ================================================== -->
+        <section class="hero-section">
+            <h1 class="hero-title">
+                BI Histórico de Não Conformidades
+            </h1>
+
+            <p class="hero-description">
+                Este painel trabalha com base na tabela de
+                <strong>registro histórico do OPER 365</strong>.
+                Toda não conformidade registrada no checklist permanece
+                contabilizada na base, preservando o histórico da operação.
+            </p>
+
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiMjA1OTRkODktYmEyYS00ZDBiLWEzZDgtNDUzOTJiZTc2Y2U5IiwidCI6IjljNjNhODcyLWMwMDQtNDI5Mi1iN2ViLWRlOGFkMjc0ZDExZiJ9"
+               target="_blank"
+               class="btn-bi">
+                <i class="fas fa-chart-line"></i>
+                Acessar BI Agora
+            </a>
+        </section>
+
+        <!-- =================================================
+             DOIS CARDS
+        ================================================== -->
+        <section class="info-section">
+
+            <!-- =================================================
+                 TEMPO ESPERADO
+            ================================================== -->
+            <div class="info-card">
+                <h3>
+                    <i class="fas fa-stopwatch"></i>
+                    Tempo Esperado
+                </h3>
+
+                <p class="sla-description">
+                    O desempenho da execução é classificado em relação ao
+                    <span class="highlight">padrão esperado</span>,
+                    utilizando o coeficiente de produtividade do SLA.
+                </p>
+
+                <div class="sla-columns">
+
+                    <!-- =========================
+                         DESEMPENHO
+                    ========================== -->
+                    <div class="sla-group">
+                        <div class="sla-group-title">
+                            Desempenho
+                        </div>
+
+                        <div class="sla-row">
+                            <span class="sla-percent">20–70%</span>
+                            <span class="sla-label">Ágil</span>
+                        </div>
+
+                        <div class="sla-row">
+                            <span class="sla-percent">70–150%</span>
+                            <span class="sla-label">Padrão</span>
+                        </div>
+
+                        <div class="sla-row">
+                            <span class="sla-percent">&gt;150–250%</span>
+                            <span class="sla-label">Lento</span>
+                        </div>
+                    </div>
+
+                    <!-- =========================
+                         DESVIOS
+                    ========================== -->
+                    <div class="sla-group deviation-group">
+                        <div class="sla-group-title">
+                            Desvios
+                        </div>
+
+                        <div class="sla-row deviation">
+                            <span class="sla-percent">&lt; 20%</span>
+                            <span class="sla-label">Desvio Inferior</span>
+                        </div>
+
+                        <div class="sla-row deviation">
+                            <span class="sla-percent">≥ 250%</span>
+                            <span class="sla-label">Desvio Superior</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sla-rule">
+                    <strong>Regra geral:</strong>
+                    quanto menor o percentual, maior a agilidade;
+                    quanto maior, maior o desvio em relação ao padrão esperado.
+                </div>
+            </div>
+
+            <!-- =================================================
+                 IMPORTANTE
+            ================================================== -->
+            <div class="info-card important-card">
+                <h3>
+                    <i class="fas fa-history"></i>
+                    Importante
+                </h3>
+
+                <div class="important-box">
+                    <div class="important-main">
+                        <p>
+                            Este BI utiliza uma
+                            <span class="highlight">base histórica em nível de auditoria</span>.
+                            Toda não conformidade registrada permanece
+                            <span class="highlight">contabilizada no histórico</span>.
+                        </p>
+                    </div>
+
+                    <div class="status-box">
+                        <i class="fas fa-clock"></i>
+                        <p>
+                            A evolução da ocorrência é acompanhada por meio do campo
+                            <span class="highlight">Status</span>,
+                            que representa sua situação atual.
+                        </p>
+                    </div>
+
+                    <p class="difference-box">
+                        Por isso, os quantitativos deste BI podem apresentar diferenças
+                        em relação ao <span class="highlight">UPE</span>,
+                        ao <span class="highlight">OPER 365</span> e a outros relatórios
+                        que consideram o status atual das ocorrências.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+    <footer>
+        &copy; 2026 Rede Brisa Hotéis - Painel de Inteligência Operacional
+    </footer>
+
+</div>
+
+</body>
+
+</html>
